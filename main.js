@@ -91,27 +91,12 @@ finishedBtn.addEventListener('click', () => {
     editBtn.addEventListener('click', () => {
         main.classList.toggle('hidden');
         textArea.classList.toggle('hidden');
-        if(screen.width < 576) {
-            listFirst.classList.remove('active');
-        }
     });
     
     deleteBtn.addEventListener('click', () => {
         note.remove();
         updateLS()
     })
-    textArea.addEventListener('click', () => {
-        if(screen.width < 576) {
-            listFirst.classList.add('active');
-        }else{
-            listFirst.classList.remove('.active');
-        }
-    });
-    window.addEventListener('', (click) => {
-        if(screen.width < 576) {
-            listFirst.classList.remove('active');
-        }
-    });
     textArea.addEventListener('input', (e) => {
         const { value } = e.target;
         
