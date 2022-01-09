@@ -18,11 +18,16 @@ body {
 }
 .header {
     position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5rem;
     width: 100%;
     height: 4rem;
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
+    transition: .5s;
 }
 .add,
 .finished,
@@ -35,12 +40,16 @@ body {
     padding: 0.5rem 1rem;
     position: absolute;
     right: 3rem;
-    top: 1rem;
+    transition: .5s;
+}
+.add:hover,
+.finished:hover,
+.current:hover {
+    color: #000;
 }
 .add {
     position: absolute;
     right: 12rem;
-    top: 1rem;
 
 }
 .note {
@@ -90,4 +99,82 @@ body {
 
 .active {
     margin-top: 5rem;
+}
+.contact {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: rgb(136, 196, 52);
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: .4s;
+}
+.contact:hover {
+    background-color: rgb(136, 196, 52);
+    box-shadow: 0 0 8px 1px #000;
+    color: #000;
+    font-weight: lighter;
+}
+.contact-me {
+    position: fixed;
+    bottom: -20rem;
+    right: 2rem;
+    padding: 1rem;
+    background: rgba(157, 200, 98, 0.938);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: .5s;
+}
+.opened {
+    bottom: 2rem !important;
+}
+.close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
+.contact-link:not(.close) {
+    color: #fff;
+    padding: .5rem 1rem;
+}
+.contact-link a {
+    text-decoration: none;
+    color: #0000ee;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contact-link a:hover {
+    color: #000;
+}
+.contact-link i {
+    padding-right: .5rem;
+}
+.phone p {
+    padding-left: 0.5rem;
+}
+.instagram p {
+    padding-left: 0.2rem;
+}
+
+@media (max-width: 576px) {
+    .header {
+        display: flex;
+        justify-content: center ;
+        width: 100%;
+        padding-right: 0;
+        gap: 1rem;
+    }
+    .add,
+    .finished,
+    .current {
+        position: relative;
+        right: 0;
+    }
 }
