@@ -1,4 +1,24 @@
+// Contact Me
+const contactBtn = document.querySelector('.contact');
+const closeBtn = document.querySelector('.close');
+const panel = document.querySelector('.contact-me');
+
+contactBtn.addEventListener('click', () => {
+    if(contactBtn.classList.contains('hidden')) {
+        contactBtn.classList.remove('hidden')
+    }else {
+        panel.classList.add('opened')
+        contactBtn.classList.add('hidden')
+    }
+})
+
+closeBtn.addEventListener('click', () => {
+        panel.classList.remove('opened')
+        contactBtn.classList.remove('hidden')
+    }
+)
 // variables
+
 const addBtn = document.getElementById('add');
 const finishedBtn = document.getElementById('finished');
 const currentBtn = document.getElementById('current');
@@ -49,10 +69,13 @@ const notes = JSON.parse(localStorage.getItem('notes'));
 
 if (notes) {
     notes.forEach(note => {
-        if(note.includes('class=done')){
+        let noteText = note;
+        let result1 = noteText.includes("class=done")
+        let result2 = noteText.includes("hidden")
+        if(result1){
             const noteValue = note.replace('class=done', '');
             addToFinished(noteValue);
-        }else if(note.includes('hidden')){
+        }else if(result2){
             const noteValue = note.replace('hidden', '');
             addToFinished(noteValue);
         }else {
@@ -160,22 +183,3 @@ function updateLS() {
     
     localStorage.setItem('notes', JSON.stringify(notes));
 }
-
-const contactBtn = document.querySelector('.contact');
-const closeBtn = document.querySelector('.close');
-const panel = document.querySelector('.contact-me');
-
-contactBtn.addEventListener('click', () => {
-    if(contactBtn.classList.contains('hidden')) {
-        contactBtn.classList.remove('hidden')
-    }else {
-        panel.classList.add('opened')
-        contactBtn.classList.add('hidden')
-    }
-})
-
-closeBtn.addEventListener('click', () => {
-        panel.classList.remove('opened')
-        contactBtn.classList.remove('hidden')
-    }
-)
